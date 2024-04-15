@@ -26,7 +26,7 @@ o pipeline {
         }
         stage('Push Docker Image') {
             steps {
-                sh 'echo docker push $DOCKER_IMAGE'  
+                sh 'echo docker push DOCKER_IMAGE'  
             }
         }
     }
