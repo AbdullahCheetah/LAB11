@@ -26,10 +26,9 @@
         }
         stage('Push Docker Image') {
             steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-                        sh 'echo docker push $DOCKER_IMAGE'
-                    }
+                
+                    sh 'echo docker push $DOCKER_IMAGE'
+          
                 }
             }
         }
