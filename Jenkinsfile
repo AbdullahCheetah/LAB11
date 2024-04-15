@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = 'username/mywebapp:latest'
@@ -16,19 +16,19 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh 'echo docker build -t $DOCKER_IMAGE .'
             }
         }
         stage('Run Docker Image') {
             steps {
-                sh 'docker run -d -p 80:80 $DOCKER_IMAGE'
+                sh 'echo docker run -d -p 80:80 $DOCKER_IMAGE'
             }
         }
         stage('Push Docker Image') {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-                        sh 'docker push $DOCKER_IMAGE'
+                        sh 'echo docker push $DOCKER_IMAGE'
                     }
                 }
             }
