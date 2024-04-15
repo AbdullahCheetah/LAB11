@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh 'Checkout passed'
+                sh 'echo Checkout passed'
             }
         }
         stage('Install Dependencies') {
