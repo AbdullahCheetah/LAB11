@@ -1,12 +1,10 @@
-o pipeline {
+pipeline {
     agent any
-    environment {
-        DOCKER_IMAGE = 'username/mywebapp:latest'
-    }
+    
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'your-credentials-id', url: 'https://github.com/aditya-sridhar/simple-reactjs-app'
+                sh 'Checkout passed'
             }
         }
         stage('Install Dependencies') {
@@ -26,13 +24,9 @@ o pipeline {
         }
         stage('Push Docker Image') {
             steps {
-                sh 'echo docker push DOCKER_IMAGE'  
+                sh 'echo docker push abdullah/lab11:latest'  
             }
         }
     }
-    post {
-        always {
-            sh 'echo "Pipeline execution is completed"'
-        }
-    }
+    
 }
